@@ -5,7 +5,7 @@ docker network rm net_vault
 docker network create --subnet 192.168.150.0/28 net_vault
 
 
-docker run  -d -p 8200:8200 --cap-add=IPC_LOCK --name=vault-1 \
+docker run  -d --cap-add=IPC_LOCK --name=vault-1 \
             -e VAULT_API_ADDR=http://127.0.0.1:8200 \
             -e VAULT_ADDR=http://127.0.0.1:8200 \
             vault
