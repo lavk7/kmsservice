@@ -1,0 +1,59 @@
+[
+    {
+        "dnsSearchDomains": null,
+        "logConfiguration": {
+            "logDriver": "awslogs",
+            "options": {
+                "awslogs-group": "/ecs/vault",
+                "awslogs-region": "ap-southeast-1",
+                "awslogs-stream-prefix": "ecs"
+            }
+        },
+        "entryPoint": null,
+        "portMappings": [
+            {
+                "hostPort": 8200,
+                "protocol": "tcp",
+                "containerPort": 8200
+            }
+        ],
+        "command": null,
+        "linuxParameters": null,
+        "cpu": 0,
+        "environment": [
+            {
+                "name": "VAULT_ADDR",
+                "value": "http://127.0.0.1:8200"
+            },
+            {
+                "name": "VAULT_API_ADDR",
+                "value": "http://127.0.0.1:8200"
+            }
+        ],
+        "resourceRequirements": null,
+        "ulimits": null,
+        "dnsServers": null,
+        "mountPoints": [],
+        "workingDirectory": null,
+        "secrets": null,
+        "dockerSecurityOptions": null,
+        "memory": 512,
+        "memoryReservation": null,
+        "volumesFrom": [],
+        "image": "243982910378.dkr.ecr.ap-southeast-1.amazonaws.com/vault:latest",
+        "disableNetworking": null,
+        "interactive": null,
+        "healthCheck": null,
+        "essential": true,
+        "links": null,
+        "hostname": null,
+        "extraHosts": null,
+        "pseudoTerminal": null,
+        "user": null,
+        "readonlyRootFilesystem": null,
+        "dockerLabels": null,
+        "systemControls": null,
+        "privileged": null,
+        "name": "vault"
+    }
+]

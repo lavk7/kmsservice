@@ -2,8 +2,6 @@ storage "dynamodb" {
   ha_enabled = "true"
   region     = "ap-southeast-1"
   table      = "vault_backend"
-  access_key = ""
-  secret_key = ""
 }
 
 listener "tcp" {
@@ -12,3 +10,4 @@ listener "tcp" {
 }
 
 ui = true
+disable_mlock = true

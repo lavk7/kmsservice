@@ -69,7 +69,7 @@ func getKey(user, uuid string ) string {
 func StatusHandler(writer http.ResponseWriter, request *http.Request){
 	key := request.URL.Query().Get("key")
 	if key == "" {
-		log.Panic("Empty key supplied")
+		log.Println("Empty key supplied")
 		writer.WriteHeader(400)
 		writer.Write([]byte("No key supplied by client"))
 		return
@@ -95,7 +95,7 @@ func StatusHandler(writer http.ResponseWriter, request *http.Request){
 func GetHandler(writer http.ResponseWriter, request *http.Request){
 	key := request.URL.Query().Get("key")
 	if key == "" {
-		log.Panic("Empty key supplied")
+		log.Println("Empty key supplied")
 		writer.WriteHeader(400)
 		writer.Write([]byte("No key supplied by client"))
 		return
@@ -135,4 +135,9 @@ func GetHandler(writer http.ResponseWriter, request *http.Request){
 	}
 	http.ServeFile(writer, request, fo.Name())
 
+}
+
+
+func HealthHandler(writer http.ResponseWriter, request *http.Request) {
+	writer.WriteHeader(200)
 }

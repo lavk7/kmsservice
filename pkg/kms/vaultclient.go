@@ -3,6 +3,8 @@ package kms
 import (
 	"github.com/hashicorp/vault/api"
 	"log"
+	"os"
+	"strings"
 )
 
 type vaultClient struct {
@@ -13,10 +15,15 @@ var Instance *vaultClient
 
 func GetClient() *vaultClient{
 	if Instance == nil {
+		// os.Setenv("CRYPTOGEN_VAULT_URL", "http://192.168.150.2:8200")
+		// os.Setenv("CRYPTOGEN_VAULT_TOKEN", "s.3SO99yIwRK7jOOc1BWfwVOuk")
+		// os.Setenv("CRYPTOGEN_VAULT_SHARD", "cb438319dbdf8107773c881e3a218c43f40dc64bff1f72943aab7fb0f8b0dac6")
 		cl,_ := api.NewClient(&api.Config{
-			Address: "http://192.168.150.2:8200",
+			Address: os.Getenv("CRYPTOGEN_VAULT_URL"),
 		})
-		cl.SetToken("s.3SO99yIwRK7jOOc1BWfwVOuk")
+		cl.SetToken(os.Getenv("CRYPTOGEN_VAULT_TOKEN"))
+
+		cl.Sys().Unseal(strings.TrimSpace(os.Getenv("CRYPTOGEN_VAULT_SHARD")))
 		return &vaultClient{
 			C: cl,
 		}

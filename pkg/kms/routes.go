@@ -31,6 +31,12 @@ func GetRoutes() []*Route {
 			Handler: StatusHandler,
 			Methods: "GET",
 		},
+		&Route{
+			Name: 	 "HealthCheck",
+			Pattern: "/health",
+			Handler: HealthHandler,
+			Methods: "GET",
+		},
 	}
 	return route;
 }
