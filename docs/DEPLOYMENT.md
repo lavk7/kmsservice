@@ -6,6 +6,7 @@
     - aws       : 1.16.93
     - linux     : ubuntu 18.04-lts
     - vault     : v1.0.3
+    - go        : 1.11.4
 - Create ECR repo for :
     - vault
     - kmsservice
