@@ -1,4 +1,4 @@
 # README
-- TECHNICAL SPECIFICATIONS [here](./docs/SERVICE_TECH_SPEC.md)
-- ARCHITECTURE DIAGRAM [here](./docs/architecture.png)
-- DEPLOYMENT INSTRUCTIONS [here](./docs/DEPLOYMENT.md)
+- Technical Specs [here](./docs/SERVICE_TECH_SPEC.md)
+- Architecture Diagram[here](./docs/architecture.png)
+- Deployment Instructions [here](./docs/DEPLOYMENT.md)
