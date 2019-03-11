@@ -1,6 +1,11 @@
 # Deployment
 
 ## Prerequisite
+- Deps tested with:
+    - terraform : v0.11.12
+    - aws       : 1.16.93
+    - linux     : ubuntu 18.04-lts
+    - vault     : v1.0.3
 - Create ECR repo for :
     - vault
     - kmsservice
@@ -24,9 +29,9 @@ terraform apply -auto-approve
 ```
 
 ## Post Configuration
-- Do first time initialization of vault by accessing the container public ip ( Should be automated )
+- Do first time initialization of vault by accessing the container public ip ( Not automated  currently) 
 - Note down the Root token and master password
-- Enter value of `CRYPTOGEN_VAULT_SHARD` and `CRYPTOGEN_VAULT_TOKEN` in `deploy/prod/ecs/kms/task.json`
+- Enter value of `CRYPTOGEN_VAULT_SHARD` and `CRYPTOGEN_VAULT_TOKEN` in `deploy/prod/ecs/kms/task.json` with respectively master password and Root token
 - Run terraform plan again
     ```
     cd deploy/prod/ecs
